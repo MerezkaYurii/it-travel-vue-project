@@ -1,0 +1,1 @@
+<template>HALLO VUE!!!!</template>
