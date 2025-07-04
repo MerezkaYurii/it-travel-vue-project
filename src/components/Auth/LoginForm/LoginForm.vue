@@ -2,7 +2,7 @@
 import IInput from '@/components/IInput/IInput.vue'
 import FormContainer from '../FormContainer.vue'
 import IButton from '@/components/IButton/IButton.vue'
-import { reactive, watch } from 'vue'
+import { reactive } from 'vue'
 
 const emit = defineEmits(['submit'])
 
@@ -10,14 +10,6 @@ const userData = reactive({
   email: '',
   password: '',
 })
-
-watch(
-  userData,
-  () => {
-    console.log('user data changed')
-  },
-  { immediate: true },
-)
 </script>
 
 <template>
