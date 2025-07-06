@@ -1,5 +1,7 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
+
+const attrs = useAttrs()
 
 const props = defineProps({
   modelValue: String,
