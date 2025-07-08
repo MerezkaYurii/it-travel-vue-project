@@ -10,6 +10,8 @@ import { addFavoritePlace, getFavoritePlaces } from '@/api/favorite-paces'
 import { useModal } from '@/composables/useModal'
 import CreateNewPlaceModal from '@/components/CreateNewPlaceModal/CreateNewPlaceModal.vue'
 import { useMutation } from '@/composables/useMutation'
+import LogoutButton from '@/components/logoutButton/logoutButton.vue'
+import UserInfo from '@/components/UserInfo/UserInfo.vue'
 
 const { isOpen, openModal, closeModal } = useModal()
 
@@ -75,7 +77,9 @@ const handleAddPlace = async (formDama, resetForm) => {
 
 <template>
   <main class="flex h-screen">
-    <div class="bg-white h-full w-[400px] shrink-0 overflow-auto pb-10">
+    <div class="relative bg-white h-full w-[400px] shrink-0 overflow-auto pb-10">
+      <UserInfo />
+      <div v-if="isPlacesLoading" class="text-black px-6">Loading...</div>
       <FavoritePlaces
         :items="favoritePlaces"
         :active-id="activeId"
@@ -83,6 +87,8 @@ const handleAddPlace = async (formDama, resetForm) => {
         @create="openModal"
         @updated="getPlaces"
       />
+
+      <LogoutButton class="mt-10" />
       <CreateNewPlaceModal
         :is-open="isOpen"
         @close="closeModal"
