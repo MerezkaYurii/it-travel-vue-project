@@ -8,16 +8,16 @@ defineProps({
     type: String,
   },
   isOpen: {
-    default: '',
-    type: String,
+    default: false,
+    type: Boolean,
   },
   isLoading: {
-    default: '',
-    type: String,
+    default: false,
+    type: Boolean,
   },
   hasError: {
-    default: '',
-    type: String,
+    default: false,
+    type: Boolean,
   },
 })
 

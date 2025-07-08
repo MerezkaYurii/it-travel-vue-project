@@ -79,7 +79,7 @@ const handleAddPlace = async (formDama, resetForm) => {
   <main class="flex h-screen">
     <div class="relative bg-white h-full w-[400px] shrink-0 overflow-auto pb-10">
       <UserInfo />
-      <div v-if="isPlacesLoading" class="text-black px-6">Loading...</div>
+      <!-- <div v-if="isPlacesLoading" class="text-black px-6">Loading...</div> -->
       <FavoritePlaces
         :items="favoritePlaces"
         :active-id="activeId"
