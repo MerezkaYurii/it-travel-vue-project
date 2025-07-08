@@ -27,11 +27,12 @@ export const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const authRoutes = ['login', 'registration']
+  const publicRoutes = ['greeting', ...authRoutes]
   const { name } = to
 
   if (authRoutes.includes(name) && authService.isLoggedin()) {
     next({ name: 'homepage' })
-  } else if (!authRoutes.includes(name) && !authService.isLoggedin()) {
+  } else if (!publicRoutes.includes(name) && !authService.isLoggedin()) {
     next({ name: 'login' })
   } else {
     next()
